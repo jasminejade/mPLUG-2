@@ -373,13 +373,15 @@ def main(args, config):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
+    #parser.add_argument('--config', default='.configs/config_bert_large_text.json')
     parser.add_argument('--config', default='./configs/VQA.yaml')
     parser.add_argument('--checkpoint', default='')
     parser.add_argument('--output_dir', default='output/vqa')
+    #parser.add_argument('--output_dir', default='output/jasmine')
     parser.add_argument('--evaluate', action='store_true')
     parser.add_argument('--text_encoder', default='bert-base-uncased')
     parser.add_argument('--text_decoder', default='bert-base-uncased')
-    parser.add_argument('--device', default='cuda')
+    parser.add_argument('--device', default='cpu')
     parser.add_argument('--seed', default=42, type=int)
     parser.add_argument('--min_length', default=4, type=int)
     parser.add_argument('--lr', default=2e-5, type=float)
