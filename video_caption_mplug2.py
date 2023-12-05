@@ -194,8 +194,8 @@ def test(model, tokenizer, device, config):
         ans = tokenizer.decode(topk_id).replace("[SEP]", "").replace("[CLS]", "").replace("[PAD]", "").strip()  
         if config["prompt"] != "":
             ans = ans.split(config["prompt"])[-1].strip()
-        result.append({"video_id": args.test_file, "pred_caption": ans})
-    
+        result.append({"video_id": args.test_file, "pred_caption": ans.join('')})
+    print(result)
     return result
  
 @torch.no_grad()
