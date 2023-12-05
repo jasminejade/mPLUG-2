@@ -3,10 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-datasets/MSRVTT/data/videos/all/
-datasets/MSRVTT/data/high-quality/
-datasets/MSRVTT/data/structured-symlinks/
-
+*.mp4
 *.pth
 *.tar
 
