@@ -1,3 +1,24 @@
+# Notes and updates made for CMPE452 (inside the cmpe452 main branch)
+
+## Requirements ##
+
+### Data used ###
+The version of the MSR-VTT dataset can be found at [this link](https://cove.thecvf.com/datasets/839). This downloads as a zip file.
+
+### The mPLUG-2 video captioning downstream pre-trained model ###
+The downstream video captioning pre-trained model was used for this project which is discussed below. You can download it by clicking [this link](http://tjfd2.oss-cn-zhangjiakou.aliyuncs.com/mplug2/mPLUG2_MSRVTT_Caption.pth). It is ~10GB and will go in the top-level directory of the project.
+
+### The visual backbone ###
+Similarly, the visual backbone discussed below must also be downloaded and placed in the top-level directory of the project. You can download it by clicking [this link](https://alice-open.oss-cn-zhangjiakou.aliyuncs.com/mPLUG/ViT-L-14.tar) 
+
+## How to use ##
+To test for an individual *.mp4 file, place the video in the `datasets/MSRVTT/data/videos/all directory`.
+Make the following updates in the `video_caption_mplug2.py` file:
+- In `main()`, on line 411 the argument `test_file` is set
+- Add `default='testing_video_you_just_added'` as a parameter, leaving out the file extension
+- Run sh ./scripts/inference_videocaption.sh (make sure you're in the top-level directory of the project)
+- It should print out the predicted video caption, and save the result to the output directory as a json file.
+__________________________________________________________________________________________________________________________________________________
 # mPLUG-2: A Modularized Multi-modal Foundation Model Across Text, Image and Video (ICML 2023)
 
 [https://arxiv.org/abs/2302.00402](https://arxiv.org/abs/2302.00402)
