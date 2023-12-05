@@ -15,9 +15,9 @@ schedular: {cooldown_epochs: 0, decay_rate: 1, epochs: 10, lr: 2e-5, min_lr: 1e-
 
 # Data
 read_local_data: true
-train_file: 'msrvttcaptiondataset/Result/MSR_VTT.json'
-test_file: 'msrvttcaptiondataset/Result/MSR_VTT.json'
-video_root: "D:/452/final_proj/mPLUG-2-452-clone-old/msrvtt/videos/all"
+train_file: 'datasets/MSRVTT/data/annotation/MSR_VTT.json'
+test_file: 'datasets/MSRVTT/data/annotation/MSR_VTT.json'
+video_root: "datasets/MSRVTT/data/videos/all"
 
 beam_size: 5
 
