@@ -1,6 +1,6 @@
 # Notes and updates made for CMPE452 (in main branch)
 
-## Requirements ##
+## Set up ##
 
 ### Data used ###
 The version of the MSR-VTT dataset can be found at [this link](https://cove.thecvf.com/datasets/839). This downloads as a zip file.
