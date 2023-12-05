@@ -215,6 +215,23 @@ def create_sampler(datasets, shuffles, num_tasks, global_rank):
         samplers.append(sampler)
     return samplers     
 
+# modified create_loader
+#
+# creates a data loader for a single dataset
+# 
+def create_loder(dataset, samplers, batch_size, num_workers, is_trains, collate_fns):
+    if is_trains:
+        shuffle = True
+        drop_last = True
+    else:
+        shuffle = False
+        drop_last = False
+    loader = DataLoader(
+        dataset,
+        batch_size=batch_size,
+        shuffle=shuffle,
+        collate_fn=collate_fns)
+    return loader
 
 def create_loader(datasets, samplers, batch_size, num_workers, is_trains, collate_fns):
     loaders = []

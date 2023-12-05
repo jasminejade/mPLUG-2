@@ -50,6 +50,37 @@ import utils
 from tqdm import tqdm
 
 
+# modified load_jsonl
+#
+# json format {
+#   {"info": {}},
+#   {"images": {id(int): video(str)}},
+#   {"licenses": {}},
+#   {"type": {}},
+#   {"annotations": [
+#       {"caption": str},
+#       {"id": int},
+#       {"image_id": str}]
+#   }
+# }
+#
+# loads the MSR_VTT.json file with keys: dict_keys(['info', 'images', 'licenses', 'type', 'annotations'])
+# returns 'annotations' data, a list of dictonaries with keys: dict_keys(['caption', 'id', 'image_id'])
+#
+def load_jsonl(filename, slice=[]):
+    with open(filename, 'r') as f:
+        data = f.read()
+    f.close()
+    data_json = json.loads(data)
+    # print(data_json.keys())
+    annotations = data_json['annotations']
+    if len(slice) == 0:
+        return annotations
+    else:
+        return annotations[slice[0]:slice[1]]
+
+
+# orignal load_jsonl
 def load_jsonl(filename):
     with open(filename, "r") as f:
         return [json.loads(l.strip("\n")) for l in f.readlines()]
@@ -88,7 +119,19 @@ def collect_result(result, result_dir, filename, is_json=True, is_list=True):
       
     return result    
 
-    
+# modified save_result
+#
+# formats results as json, and writes to output file.
+def save_result(result, result_dir, filename, is_json=True, is_list=True, remove_duplicate=""):
+    if is_json:
+        result_file = f'{result_dir}/{filename}3.json'
+        final_result_file = f'{result_dir}/{filename}_final.json'
+        result = json.dumps(result, indent=2)
+        with open(result_file, 'w') as outfile:
+            outfile.write(result)
+    return result_file
+
+
 def save_result(result, result_dir, filename, is_json=True, is_list=True, remove_duplicate=""):
     if is_json:
         result_file = os.path.join(result_dir, '%s_rank%d.json'%(filename,utils.get_rank()))

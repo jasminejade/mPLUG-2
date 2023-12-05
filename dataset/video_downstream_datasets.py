@@ -324,9 +324,13 @@ jsonl format [
     xxxx
 ]
 '''
-    
+# modified video captioning dataset
+#
+# input key video_id is now image_id
+#
 class video_caption_dataset(Dataset):
     def __init__(self, ann_file, transform, video_root, num_frames=16, split='train', max_words=30, read_local_data=True):
+        super.__init__()
         self.ann = load_jsonl(ann_file)
         self.transform = transform
         self.max_words = max_words
@@ -343,17 +347,19 @@ class video_caption_dataset(Dataset):
         ann = self.ann[index]
         
         if self.split == 'train':
-            video_path = os.path.join(self.video_root, ann['video_id'] + '.mp4')
+            video_id = ann['image_id']
+            video_path = f'{self.video_root}/{video_id}.mp4'
             while True:
-                if not os.path.exists(video_path):
-                    video_path = os.path.join(self.video_root, ann['video_id'] + '.avi')
+                # if not os.path.exists(video_path):
+                #     video_path = os.path.join(self.video_root, ann['video_id'] + '.avi')
                 try:
                     video_array = read_frames_decord(video_path, num_frames=self.num_frames, sample='rand')
                 except:
                     time.sleep(0.01)
                     index = 0 if index == (len(self) - 1) else index + 1
                     ann = self.ann[index]
-                    video_path = os.path.join(self.video_root, ann['video_id'] + '.mp4')
+                    video_id = ann['image_id']
+                    video_path = f'{self.video_root}/{video_id}.mp4'
                     continue
                 break
             caption = pre_caption(ann['caption'], 80)
@@ -363,12 +369,12 @@ class video_caption_dataset(Dataset):
             return video_array, caption
             
         else:
-            video_id = ann['video_id']
-            video_path = os.path.join(self.video_root, ann['video_id'] + '.mp4')
-            if not os.path.exists(video_path):
-                video_path = os.path.join(self.video_root, ann['video_id'] + '.avi')
+            video_id = ann['image_id']
+            video_path = f'{self.video_root}/{video_id}.mp4'
+            # if not os.path.exists(video_path):
+            #     video_path = os.path.join(self.video_root, ann['video_id'] + '.avi')
             video_array = read_frames_decord(video_path, num_frames=self.num_frames, sample='middle')
-            golden_captions = [x.lower() for x in ann['golden_captions']]
+            golden_captions = [x.lower() for x in ann['caption']]
             
             if self.transform:
                 video_array = self.transform(video_array) # (T, C, H, W) -> (C, T, H, W)
