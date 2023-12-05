@@ -1,4 +1,4 @@
-# Notes and updates made for CMPE452 (inside the cmpe452 main branch)
+# Notes and updates made for CMPE452 (in main branch)
 
 ## Requirements ##
 
