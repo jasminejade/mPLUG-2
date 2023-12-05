@@ -8,7 +8,7 @@ GPU_NUM=1
 TOTAL_GPU=$((WORLD_SIZE * GPU_NUM))
 
 checkpoint_dir='mPLUG2_MSRVTT_Caption.pth'
-output_dir='D:/452/final_proj/mPLUG-2-452-clone-old/output/blessed'
+output_dir='./output/blessed'
 
 mkdir -p ${output_dir}
 python -u -m torch.distributed.run --nproc_per_node=$GPU_NUM \
