@@ -2,8 +2,14 @@
 __pycache__/
 *.py[cod]
 *$py.class
-datasets/
+
+datasets/MSRVTT/data/videos/all/
+datasets/MSRVTT/data/high-quality/
+datasets/MSRVTT/data/structured-symlinks/
+
 *.pth
+*.tar
+
 # C extensions
 *.so
 
