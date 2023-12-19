@@ -1,0 +1,79 @@
+[
+  [
+    {
+      "video_id": "michael&sam",
+      "pred_caption": "two men are sitting at a bar and one of them is holding a ring",
+      "gold_caption": "two guys at a bar"
+    }
+  ],
+  [
+    {
+      "video_id": "tonylol",
+      "pred_caption": "a man opens a door",
+      "gold_caption": "a man entering a room with an alarm"
+    }
+  ],
+  [
+    {
+      "video_id": "alessia&paulina",
+      "pred_caption": "a group of women are dancing to music in a room",
+      "gold_caption": "friends at a party salsa dancing"
+    }
+  ],
+  [
+    {
+      "video_id": "michaelsppt",
+      "pred_caption": "a man is using a laptop",
+      "gold_caption": "powerpoint on a computer"
+    }
+  ],
+  [
+    {
+      "video_id": "jonnylinedancing",
+      "pred_caption": "a group of people are dancing to music in a club",
+      "gold_caption": "a guy line dancing at a country bar"
+    }
+  ],
+  [
+    {
+      "video_id": "thomasblessingup",
+      "pred_caption": "a band is playing on stage for a crowd",
+      "gold_caption": "a guitarist playing at a concert on a stage"
+    }
+  ],
+  [
+    {
+      "video_id": "mattblowling",
+      "pred_caption": "a man throws a bowling ball down the lane and gets a strike",
+      "gold_caption": "a man bowling badly"
+    }
+  ],
+  [
+    {
+      "video_id": "hotknife",
+      "pred_caption": "a man is cutting a piece of paper",
+      "gold_caption": "smoking weed via hot knife"
+    }
+  ],
+  [
+    {
+      "video_id": "sandwalking",
+      "pred_caption": "a group of men are dancing in a living room",
+      "gold_caption": "sandwalking"
+    }
+  ],
+  [
+    {
+      "video_id": "funshuei",
+      "pred_caption": "a man is talking about a house",
+      "gold_caption": "moving into and setting up a new room"
+    }
+  ],
+  [
+    {
+      "video_id": "baseball",
+      "pred_caption": "a group of people are playing baseball in a fenced in area",
+      "gold_caption": "a man practicing baseball as the back catcher"
+    }
+  ]
+]
